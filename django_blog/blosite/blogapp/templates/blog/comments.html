@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}{{article.tags}}{% endblock %}
+{% load widget_tweaks %}
+{% block body %}
+<div class="container">
+	<p>
+				<button type="button" class="btn btn-secondary">
+					Comments<span class="badge badge-light">{{ comments.count}} </span>
+				</button>
+			</p>
+	<div class="row">
+		<div class="col-md-8 card"><br>
+			
+			{# end of comment count #}
+			{# looping and diplaying all comments #}
+			{% for comment in comments %}
+			  <div class="alert alert-secondary">{{comment}}</div>
+			{% endfor %}
+			{# end of loop #}
+			{# paginator navigations #}
+
+		</div>
+		<div class="col-md-4">
+			
+		</div>
+	</div>
+</div>
+{% endblock %}

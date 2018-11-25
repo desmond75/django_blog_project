@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}{{article.tags}}{% endblock %}
+{% load widget_tweaks %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 card"><br>
+			{% if results %}
+			<p class="j">About {{results.count}} Results  in {{time_taken}} seconds</p>
+			{% for result in results %}
+			  <div class="alert alert-secondary"><a href="{% url 'blog:_article' result.id %}">{{result}}</a></div>
+			{% endfor %}
+			{% else %}
+			<ul style="list-style-type:circle">
+			<li>No resulst match your search keywords</li>
+			<li>Make sure your spellings are correct</li>
+			<li>Try different keywords</li>
+		   </ul>
+			{% endif %}
+			{# end of loop #}
+		</div>
+		<div class="col-md-4">
+		</div>
+	</div>
+</div>
+{% endblock %}
